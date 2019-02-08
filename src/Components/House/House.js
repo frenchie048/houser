@@ -1,16 +1,27 @@
 import React from 'react';
+import './house.css';
 
 function House(props) {
-    const { id, name, address, city, state, zip } = props.house;
+    const { id, name, address, city, state, zip, img, mortgage, rent } = props.house;
     return (
-        <div>
-            <h1>House!</h1>
-            <p>{name}</p>
-            <p>{address}</p>
-            <p>{city}</p>
-            <p>{state}</p>
-            <p>{zip}</p>
-            <button onClick={() => props.deleteHouse(id)}>Delete</button>
+        <div className='house-card'>
+            {/* <h1>House!</h1> */}
+            <div className='house-img'>
+                <img src={img} />
+            </div>
+
+            <div className='house-info'>
+                <p>Property Name: {name}</p>
+                <p>Address: {address}</p>
+                <p>City: {city}</p>
+                <p>State: {state}</p>
+                <p>Zip: {zip}</p>
+            </div>
+            <div className='financials'>
+                <p>Monthly Mortgage: {mortgage}</p>
+                <p>Desired Rent: {rent}</p>
+            </div>
+            <button className='delete-button' onClick={() => props.deleteHouse(id)}>Delete</button>
         </div>
     )
 }

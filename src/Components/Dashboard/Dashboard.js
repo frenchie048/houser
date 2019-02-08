@@ -48,10 +48,13 @@ class Dashboard extends Component {
                 <div className='top'>
                     <h1>Dashboard!</h1>
                     <Link to='/wizard/step1'><button>Add New Property</button></Link>
+                    <ln />
                 </div>
 
-                <h6>Home Listings</h6>
-                {mappedHouses}
+                <h3>Home Listings</h3>
+                <div className='houses'>
+                    {mappedHouses}
+                </div>
 
             </div>
         )

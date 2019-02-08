@@ -1,0 +1,40 @@
+.house-card {
+    width: 100%;
+    height: fit-content;
+    background-color: #DEDEDE;
+    margin: 20px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.house-img img {
+    justify-content: center;
+    align-content: center;
+    height: 150px;
+    width: 250px;
+    padding: 15px;
+}
+
+.house-info {
+    line-height: 10px;
+    text-align: left;
+    font-size: 18px;
+    padding: 5px 40px;
+    flex-wrap: nowrap;
+}
+
+.financials {
+    line-height: 10px;
+    text-align: left;
+    font-size: 18px;
+    padding: 5px 0px;
+}
+
+.delete-button {
+    height: fit-content;
+    width: fit-content;
+}
+
+
+

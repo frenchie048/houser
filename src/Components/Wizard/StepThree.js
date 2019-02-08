@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateFinancialInfo } from '../../ducks/reducer';
 import axios from 'axios';
 import './wizard.css';
 
@@ -38,12 +40,23 @@ class StepThree extends Component {
                 </div>
                 <br></br>
                 <div className='step3-buttons'>
-                    <Link to='/wizard/step2'><button>Previous Step</button></Link>
-                    <Link to='/'><button onClick={this.addHouse}>Complete</button></Link>
+                    <Link to='/wizard/step2'>
+                        <button onClick={(e) => updateFinancialInfo(e.target.value)} >Previous Step</button>
+                    </Link>
+                    <Link to='/'>
+                        <button onClick={this.addHouse}>Complete</button>
+                    </Link>
                 </div>
             </div>
         )
     }
 }
 
-export default StepThree;
+function mapStateToProps(reduxState) {
+    const { name, address, city, state, zip, img, mortgage, rent } = reduxState;
+    return {
+        name, address, city, state, zip, img, mortgage, rent
+    }
+};
+
+export default connect(mapStateToProps, { updateFinancialInfo })(StepThree);

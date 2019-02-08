@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { updatePropertyInfo } from '../../ducks/reducer';
 // import axios from 'axios';
 import './wizard.css';
 
@@ -15,7 +16,6 @@ class StepOne extends Component {
             state: '',
             zip: 0
         }
-        // this.addHouse = this.addHouse.bind(this);
     }
 
     // MOVED TO STEP THREE
@@ -27,7 +27,7 @@ class StepOne extends Component {
 
     render() {
         const { name, address, city, state, zip } = this.state;
-        console.log(this.props);
+        console.log(this.state);
         return (
             <div>
                 <div className='input-info'>
@@ -44,7 +44,9 @@ class StepOne extends Component {
                 </div>
                 <br></br>
                 <div className='step1-button'>
-                    <Link to='/wizard/step2'><button>Next Step</button></Link>
+                    <Link to='/wizard/step2'>
+                        <button onClick={(e) => updatePropertyInfo(e.target.value)} >Next Step</button>
+                    </Link>
                 </div>
             </div>
         )
@@ -58,4 +60,4 @@ function mapStateToProps(reduxState) {
     }
 };
 
-export default connect(mapStateToProps, {})(StepOne);
+export default connect(mapStateToProps, { updatePropertyInfo })(StepOne);

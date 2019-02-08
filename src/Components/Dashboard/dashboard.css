@@ -5,7 +5,21 @@
 }
 
 .top > h1 {
-    color: gray;
-    font-size: 35px;
+    color: #3B5249;
+    font-size: 45px;
     font-weight: 300;
 }
+
+.top ln {
+    height: .5px;
+}
+
+.dashboard h3 {
+    text-align: left;
+}
+
+/* .houses {
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+} */

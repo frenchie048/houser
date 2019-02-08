@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updatePropertyImg } from '../../ducks/reducer';
 // import axios from 'axios';
 import './wizard.css';
 
@@ -10,7 +12,6 @@ class StepTwo extends Component {
         this.state = {
             img: ''
         }
-        // this.addHouse = this.addHouse.bind(this);
     }
 
     // MOVED TO STEP THREE
@@ -35,12 +36,23 @@ class StepTwo extends Component {
                 </div>
                 <br></br>
                 <div className='step2-buttons'>
-                    <Link to='/wizard/step1'><button>Previous Step</button></Link>
-                    <Link to='/wizard/step3'><button>Next Step</button></Link>
+                    <Link to='/wizard/step1'>
+                        <button onClick={(e) => updatePropertyImg(e.target.value)} >Previous Step</button>
+                    </Link>
+                    <Link to='/wizard/step3'>
+                        <button onClick={(e) => updatePropertyImg(e.target.value)} >Next Step</button>
+                    </Link>
                 </div>
             </div>
         )
     }
 }
 
-export default StepTwo;
+function mapStateToProps(reduxState) {
+    const { img } = reduxState;
+    return {
+        img
+    }
+};
+
+export default connect(mapStateToProps, { updatePropertyImg })(StepTwo);

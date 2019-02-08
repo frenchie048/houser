@@ -1,11 +1,9 @@
-.top {
+.form-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.top > h1 {
-    color: gray;
-    font-size: 35px;
-    font-weight: 300;
+.input-info > input {
+    border: 1px solid green;
 }

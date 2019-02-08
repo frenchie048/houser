@@ -15,5 +15,9 @@ massive(process.env.CONNECTION_STRING).then(db => {
 
 app.get('/api/houses', controller.getHouses);
 
+app.post('/api/houses', controller.addHouse);
+
+app.delete('/api/houses/:id', controller.deleteHouse);
+
 const PORT = process.env.SERVER_PORT || 4000
 app.listen(PORT, console.log(`I'm listening on port ${PORT}`));

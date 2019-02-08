@@ -12,3 +12,8 @@ insert into houses (name, address, city, state, zip)
     , ('Island Villa','546 Playa Bonita Dr','Culebra','PR', 00775);
 
 select * from houses;
+
+-- alter table houses
+    -- add column img text;
+    -- add column mortgage decimal;
+    -- add column rent decimal;

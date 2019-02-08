@@ -1,45 +1,29 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
+import StepOne from './StepOne';
+import StepTwo from './StepTwo';
+import StepThree from './StepThree';
+// import axios from 'axios';
+import './wizard.css';
 
 class Wizard extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            name: '',
-            address: '',
-            city: '',
-            state: '',
-            zip: 0
-        }
-
-    }
-
-    // handleChange = (e) => {
-    //     this.setState({
-    //         [e.target.name]: e.target.value
-    //     })
-    //     console.log(this.setState)
-    // };
+    //moved to STEP ONE component
 
     render() {
 
-        const { name, address, city, state, zip } = this.state;
-        console.log(this.state);
+
         return (
             <div>
-                <h1>Wizard!</h1>
-                Property Name:
-                <input value={name} onChange={(e) => this.setState({ name: e.target.value })} />
-                Address:
-                <input value={address} onChange={(e) => this.setState({ address: e.target.value })} />
-                City:
-                <input value={city} onChange={(e) => this.setState({ city: e.target.value })} />
-                State:
-                <input value={state} onChange={(e) => this.setState({ state: e.target.value })} />
-                Zip:
-                <input value={zip} onChange={(e) => this.setState({ zip: e.target.value })} />
-                <Link to='/'><button>Cancel</button></Link>
+                <div className='form-top'>
+                    <h1>Add New Listing</h1>
+                    <Link to='/'><button>Cancel</button></Link>
+                </div>
+
+                <div className="steps">
+                    <Route path='/wizard/step1' component={StepOne} />
+                    <Route path='/wizard/step2' component={StepTwo} />
+                    <Route path='/wizard/step3' component={StepThree} />
+                </div>
             </div>
         )
     }

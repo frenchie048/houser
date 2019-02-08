@@ -15,7 +15,7 @@ class App extends Component {
         </header>
 
         <main>
-          <div>
+          <div className="app-body">
             {routes}
           </div>
         </main>
